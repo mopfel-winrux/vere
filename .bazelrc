@@ -18,7 +18,6 @@ build --flag_alias=clang_version=//:clang_version
 build --flag_alias=gcc_version=//:gcc_version
 
 # Always include source-level debug info.
-build --copt='-g'
 build --strip=never
 
 # Use -O3 as the default optimization level.

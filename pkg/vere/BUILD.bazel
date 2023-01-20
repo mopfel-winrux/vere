@@ -140,6 +140,10 @@ cc_library(
 
 cc_binary(
     name = "urbit",
+    copts = select({
+        "@platforms//os:macos": [],
+        "//conditions:default": ["-g"],
+    }),
     srcs = [
         "main.c",
         ":ca_bundle",
