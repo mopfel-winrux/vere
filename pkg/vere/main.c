@@ -1249,21 +1249,23 @@ _cw_eval(c3_i argc, c3_c* argv[])
   u3_mojo std_u;
   c3_i    ch_i, lid_i;
   c3_w    arg_w;
+  c3_o    pir_o = c3n;
   c3_o    cue_o = c3n;
   c3_o    jam_o = c3n;
   c3_o    kan_o = c3n;
   c3_o    new_o = c3n;
 
   static struct option lop_u[] = {
-    { "loom", required_argument,  NULL, c3__loom },
-    { "cue",  no_argument,        NULL, 'c'},
-    { "jam",  no_argument,        NULL, 'j' },
-    { "newt", no_argument,        NULL, 'n' },
+    { "loom",  required_argument,  NULL, c3__loom },
+    { "pier",  no_argument,        NULL, 'p'},
+    { "cue",   no_argument,        NULL, 'c'},
+    { "jam",   no_argument,        NULL, 'j' },
+    { "newt",  no_argument,        NULL, 'n' },
     //
     { NULL, 0, NULL, 0 }
   };
 
-  while ( -1 != (ch_i=getopt_long(argc, argv, "cjkn", lop_u, &lid_i)) ) {
+  while ( -1 != (ch_i=getopt_long(argc, argv, "pcjkn", lop_u, &lid_i)) ) {
     switch ( ch_i ) {
       case c3__loom: {
         if (_main_readw_loom("loom", &u3_Host.ops_u.lom_y)) {
@@ -1271,6 +1273,12 @@ _cw_eval(c3_i argc, c3_c* argv[])
         }
       } break;
 
+      case 'p': {
+                  u3l_log("wtf");
+        u3_Host.dir_c     = "./zod_khan/";//_main_repath(optarg);
+        pir_o = c3y;
+        break;
+      }
       case 'c': {
         cue_o = c3y;
       } break;
@@ -1327,7 +1335,7 @@ _cw_eval(c3_i argc, c3_c* argv[])
 
   //  initialize the Loom and load the Ivory Pill
   //
-  {
+  if ( c3n == pir_o ) {
     c3_d         len_d = u3_Ivory_pill_len;
     c3_y*        byt_y = u3_Ivory_pill;
     u3_cue_xeno* sil_u;
@@ -1345,6 +1353,8 @@ _cw_eval(c3_i argc, c3_c* argv[])
       u3l_log("lite: boot failed");
       exit(1);
     }
+  } else {
+    u3m_boot(u3_Host.dir_c, (size_t)1 << u3_Host.ops_u.lom_y);
   }
 
   fprintf(stderr, "eval (");
