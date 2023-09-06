@@ -1810,6 +1810,12 @@ static c3_c* _140_two__in_ha[] = {
   0
 };
 
+  static u3j_harm _140_two__to_top_a[] = {{".2", u3wdb_top, c3y}, {}};
+  static c3_c* _140_two__to_top_ha[] = {
+    "c2e87d0047c14b4488d03aad98fa43080c736d86d2ff723a037aaf1843aa9285",
+    0
+  };
+
   static u3j_harm _140_two__by_all_a[] = {{".2", u3wdb_all, c3y}, {}};
   static c3_c* _140_two__by_all_ha[] = {
     "c2e87d0047c14b4488d03aad98fa43080c736d86d2ff723a037aaf1843aa9285",
@@ -1932,6 +1938,15 @@ static c3_c* _140_two__by_ha[] = {
   0
 };
 
+static u3j_core _140_two__to_d[] =
+  { { "top", 7, _140_two__to_top_a, 0, _140_two__to_top_ha},
+    {}
+  };
+static c3_c* _140_two__to_ha[] = {
+  "9c70e973de46335405a7ff932d4742743f54db579f2584758ef2b02afd4fbfe8",
+  0
+};
+
 static u3j_harm _140_two_cue_a[] = {{".2", u3we_cue}, {}};
 static c3_c* _140_two_cue_ha[] = {
   "a52b584c5a92fc653e47f50c3389caf3427e13d20ddb8bd701a2d7bca12cb742",
@@ -2007,6 +2022,7 @@ static u3j_core _140_two_d[] =
   { "sqt",  7, _140_two_sqt_a, 0, _140_two_sqt_ha },
   { "xeb",  7, _140_two_xeb_a, 0, _140_two_xeb_ha },
 
+  { "to", 7, 0, _140_two__to_d, _140_two__to_ha },
   { "by", 7, 0, _140_two__by_d, _140_two__by_ha },
   { "in", 7, 0, _140_two__in_d, _140_two__in_ha },
   {}
@@ -2328,6 +2344,7 @@ static u3j_core _139_two_d[] =
 
   { "by", 7, 0, _140_two__by_d, no_hashes },
   { "in", 7, 0, _139_two__in_d, no_hashes },
+  { "to", 7, 0, _140_two__by_d, no_hashes },
   {}
 };
 
@@ -2361,6 +2378,10 @@ u3j_core _k139_d[] =
 
 
 //  TODO: probably need different ha hashes
+static u3j_core _a50_two__to_d[] =
+  { { "apt", 7, _140_two__to_top_a, 0, _140_two__to_top_ha },
+    {}
+  };
 
 static u3j_core _a50_two__by_d[] =
   { { "apt", 7, _140_two__by_apt_a, 0, _140_two__by_apt_ha },
@@ -2420,6 +2441,7 @@ u3j_core _a50_d[] =
   { "turn", 7, _140_two_turn_a, 0, _140_two_turn_ha },
   { "welp", 7, _140_two_welp_a, 0, _140_two_welp_ha },
 
+  { "by", 7, 0, _a50_two__to_d, _140_two__to_ha },
   { "by", 7, 0, _a50_two__by_d, _140_two__by_ha },
   { "in", 7, 0, _a50_two__in_d, _140_two__in_ha },
   {}

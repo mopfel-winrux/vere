@@ -98,6 +98,7 @@
     u3_noun u3qdb_uni(u3_noun, u3_noun);
     u3_noun u3qdb_urn(u3_noun, u3_noun);
 #   define u3qdb_wyt u3qdi_wyt
+    u3_noun u3qdb_top(u3_noun);
 
     u3_noun u3qdi_apt(u3_noun);
     u3_noun u3qdi_bif(u3_noun, u3_noun);
